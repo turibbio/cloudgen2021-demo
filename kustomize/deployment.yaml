@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudgen-app
+  namespace: cloudgen
+spec:
+  selector:
+    matchLabels:
+      app: cloudgen-app
+  template:
+    metadata:
+      labels:
+        app: cloudgen-app
+    spec:
+      containers:
+      - name: cloudgen-app
+        image: <acr-registry-url>/cloudgen2021:0.3 # {"$imagepolicy": "flux-system:cloudgen-app"}
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
