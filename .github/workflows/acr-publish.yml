@@ -28,7 +28,7 @@ jobs:
       
       - uses: azure/docker-login@v1
         with:
-          login-server: cloudgenacr.azurecr.io
+          login-server: <acr-registry-url>
           username: ${{ secrets.ACR_USERNAME }}
           password: ${{ secrets.ACR_PASSWORD }}
 
